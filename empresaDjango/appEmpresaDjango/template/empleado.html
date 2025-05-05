@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+        <div id = "page">
+            <div id = "page_text">
+
+               Esta es la información de el empleado
+
+            </div>
+
+            <div id= "tabla">
+                <table class="tablapla">
+                    <tr>
+                        <th class="tittabla">ID</th>
+                        <th class="tittabla">DNI </th>
+                        <th class="tittabla">Nombre</th>
+                        <th class="tittabla">Apellido</th>
+                        <th class="tittabla">email</th>
+                        <th class="tittabla">tlf</th>
+                        <th class="tittabla">Modificar</th>
+                        <th class="tittabla">Eliminar</th>
+                    </tr>
+                    <tr>
+                        <td class="comptab">{{ empleado.id }}</td>
+                        <td class="comptab">{{ empleado.dni }}</td>
+                        <td class="comptab">{{ empleado.nombre }}</td>
+                        <td class="comptab">{{ empleado.apellido }}</td>
+                        <td class="comptab">{{ empleado.email }}</td>
+                        <td class="comptab">{{ empleado.telefono }}</td>
+                        <td class="comptab"><a href="{% url 'empleadosUpdateView' empleado.id %}">MODIFICAR</a></td>
+                        <td class="comptab"><a href="{% url 'empleadosDeleteView' empleado.id %}">ELIMINAR</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+{% endblock %}

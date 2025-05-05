@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+        <div id = "page">
+            <div id = "page_text">
+
+               TRABAJADORES ACTUALES
+
+            </div>
+
+            <div id= "tabla">
+                <table class="tablapla">
+                    <tr>
+                        <th class="tittabla">ID</th>
+                        <th class="tittabla">Nombre </th>
+                        <th class="tittabla">Apellido</th>
+                        <th class="tittabla">Acciones</th>
+                    </tr>
+                    {% for a in lista_empleado %}
+                        <tr>
+                            <td class="comptab">{{ a.id }}</td>
+                            <td class="comptab">{{ a.nombre }}</td>
+                            <td class="comptab">{{ a.apellido }}</td>
+                            <td class="comptab"><a href="{% url 'empleadoun' a.id %}">Leer</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div><center><a href="{% url 'creador_empleado' %}">Añadir un empleado</a></center></div>
+        </div>
+
+
+{% endblock %}

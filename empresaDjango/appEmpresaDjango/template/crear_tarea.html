@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div id="page">
+    <div id="page_text">
+        <form action="{% url 'crear_tarea' %}" method="post">
+            {% csrf_token %}
+            <div class="columna1">
+                <div id="formulario">
+                    NOMBRE
+                </div>
+                <input class="formulario_input" type="text" name="nombre"><br>
+
+                <div id="formulario">
+                    DESCRIPCIÓN
+                </div>
+                <input class="formulario_input" type="text" name="descripcion"><br>
+
+                <div id="formulario">
+                    FECHA DE INICIO
+                </div>
+                <input class="formulario_input" type="datetime" name="inicio"><br>
+
+                <div id="formulario">
+                    FECHA FIN
+                </div>
+                <input class="formulario_input" type="datetime" name="fin"><br>
+
+                <div id="formulario">
+                    RESPONSABLE
+                </div>
+                <select class="formulario_input" name="responsable">
+                    <option value="" disabled selected>Seleccione un responsable</option>
+                    <option value="1">Usuario 1</option>
+                    <option value="2">Usuario 2</option>
+                    <!-- Agrega más opciones si es necesario -->
+                </select><br>
+
+                <div id="formulario">
+                    NIVEL DE PRIORIDAD
+                </div>
+                <input class="formulario_input" type="text" name="prioridad"><br>
+
+                <div id="formulario">
+                    ESTADO DE LA TAREA
+                </div>
+                <input class="formulario_input" type="text" name="estado"><br>
+
+                <div id="formulario">
+                    NOTAS ADICIONALES
+                </div>
+                <input class="formulario_input" type="text" name="notas"><br>
+            </div>
+
+            <div class="centrado">
+                <input type="submit" value="Nueva tarea" />
+            </div>
+            <div class="centrado">
+                <a href="{% url 'listatareas' %}">Volver a la lista de tareas</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<section class="content">
+    <h3>¿Quieres eliminar esta tarea?</h3>
+    <form action="." method="POST">{% csrf_token %}
+        <div>
+            <p><input type="submit" value="SI" /> <a href='../'>Cancel</a></p>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
